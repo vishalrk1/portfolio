@@ -18,7 +18,7 @@ export const ProjectsData = [
     projectTypes: ["Web Development", "Backend Development"],
     images: [
       {
-        url: "https://github.com/user-attachments/assets/f68835e2-ff91-4417-ae1b-2ce4512a4ae5",
+        url: "/project/illusion/ss1.png",
         alt: "project-3-1",
       },
       {
@@ -75,14 +75,13 @@ export const ProjectsData = [
     description:
       "Developed Megalinks website using Next JS, Tailwind CSS, and TypeScript, with state management powered by Redux, for accessing free video editing resources like scenepacks and tutorials",
     liveLink: "https://megalinks.vercel.app/",
-    githubLink:
-      "https://github.com/vishalrk1/megalinks-website-nextjs/tree/main",
+    githubLink: "https://github.com/vishalrk1/MegalinksWeb",
     isFeatured: true,
     isFlipped: false,
     projectTypes: ["Web Development"],
     images: [
       {
-        url: "https://github.com/user-attachments/assets/a407ede5-d7e5-4c9f-88aa-b6a7e07f3e4b",
+        url: "/project/megalinksWeb/ss1.png",
         alt: "first-panel-ss",
       },
       {
@@ -140,7 +139,7 @@ export const ProjectsData = [
     projectTypes: ["Android Development"],
     images: [
       {
-        url: "https://github.com/vishalrk1/MegaLinksApk/assets/59719046/7a9bb39c-2a0c-4443-af0c-ad4037d15fba",
+        url: "/project/megalinksApk/ss.jpg",
         alt: "android-apk",
       },
     ] as Image[],
@@ -174,7 +173,8 @@ export const ProjectsData = [
     images: [
       {
         alt: "BTC-alerting-vishal-karangale",
-        url: "https://github.com/user-attachments/assets/1c0f40da-f67d-4d6b-b67a-e3429543de25",
+        url: "/project/BTCAlert/btcSS.png"
+        // url: "https://github.com/user-attachments/assets/1c0f40da-f67d-4d6b-b67a-e3429543de25",
       },
     ],
     skills: [
@@ -197,7 +197,7 @@ export const ProjectsData = [
     projectTypes: ["AI/ML", "Web Development"],
     images: [
       {
-        url: "https://raw.githubusercontent.com/vishalrk1/seefood-ai/combined/screenshot/img-1.png",
+        url: "/project/seefood/SeeFoodSS.png",
         alt: "project-seeFood",
       },
       {
@@ -272,7 +272,7 @@ export const ProjectsData = [
     projectTypes: ["Web Development"],
     images: [
       {
-        url: "https://raw.githubusercontent.com/vishalrk1/megalinks-admin-portal/main/screenshots/img-1.png",
+        url: "/project/megalinksWeb/img-7.png",
         alt: "first-panel-ss",
       },
       {

@@ -29,34 +29,32 @@ const Homepage = () => {
   if (!isMounted) return null;
 
   return (
-      <main className="flex flex-col justify-center text-primary min-h-screen">
-        <Info />
-        <SpaceSection />
-        <AboutSection />
-        <section className="flex flex-wrap items-center justify-center md:justify-start bg-secondary w-full md:px-12 xl:px-60 gap-2 md:gap-6">
-          {DevFieldsData.map((item, index) => {
-            return (
-              <DevFieldCard devFieldItem={item} index={index} key={index} />
-            );
-          })}
-        </section>
-        <FeaturedProjectsSection />
-        <section
-          id="experience"
-          className="flex flex-col justify-center bg-secondary w-full px-6 md:px-12 xl:px-40"
-        >
-          <h1 className="font-semibold text-4xl font-poppins my-8">
-            Work Experience
-          </h1>
-          <div className="md:mx-10">
-            {ExperienceData.map((item, index) => (
-              <ExperienceSection experience={item} key={index} />
-            ))}
-          </div>
-        </section>
-        <SkillsSection />
-        <ContactSection />
-      </main>
+    <main className="flex flex-col justify-center text-primary min-h-screen">
+      <Info />
+      <SpaceSection />
+      <AboutSection />
+      <section className="flex flex-wrap items-center justify-center md:justify-start bg-secondary w-full md:px-12 xl:px-40 gap-2 md:gap-6">
+        {DevFieldsData.map((item, index) => {
+          return <DevFieldCard devFieldItem={item} index={index} key={index} />;
+        })}
+      </section>
+      <section
+        id="experience"
+        className="flex flex-col justify-center bg-secondary w-full px-6 md:px-12 xl:px-40"
+      >
+        <h1 className="font-semibold text-4xl font-poppins my-12">
+          Work Experience
+        </h1>
+        <div className="md:mx-10">
+          {ExperienceData.map((item, index) => (
+            <ExperienceSection experience={item} key={index} />
+          ))}
+        </div>
+      </section>
+      <FeaturedProjectsSection />
+      <SkillsSection />
+      <ContactSection />
+    </main>
   );
 };
 

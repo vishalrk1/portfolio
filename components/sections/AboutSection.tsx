@@ -5,7 +5,7 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="flex flex-col justify-center bg-secondary w-full px-4 md:px-12 xl:px-60 py-8"
+      className="flex flex-col justify-center bg-secondary w-full px-4 md:px-12 xl:px-40 py-8"
     >
       <motion.h1
         initial={{ y: 30, opacity: 0 }}
@@ -47,7 +47,7 @@ const AboutSection: React.FC = () => {
         className="flex mt-5 gap-4 items-center mr-6"
       >
         <h1 className="font-semibold font-poppins text-6xl md:text-8xl text-primary">
-          {"1+"}
+          {"2+"}
         </h1>
         <p className="font-normal font-poppins text-sm md:text-xl text-white">
           Years of experience. in building mobile, web apps and AI based

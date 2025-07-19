@@ -2,8 +2,22 @@ import { Experience } from "./types";
 
 import jioLogo from "../assets/jio-logo.png";
 import noLogo from "../assets/building-logo.png";
+import digitLogo from "../assets/digit-icon.png";
 
 export const ExperienceData = [
+  {
+    company: "Digit Insurance",
+    position: "Associate Data Scientist",
+    companyLogo: digitLogo,
+    description: [
+      "Developed an advanced ensemble computer vision pipeline (YOLOv11, RF-Detr, Azure/Paddle OCR) for odometer readingclassification, increasing accuracy from 65% to 88% and significantly improving data reliability for insurance assessments.",
+      "Developed and implemented a facial recognition system utilising the DeepFace library and cosine similarity to match individuals across various images for verification purposes accurately.",
+      "Implemented a utility package for the AI team to optimize reusable code and maintain global utilities such as image pre/post-processing, database utilities, model quantization, and SQS queue integration.",
+    ],
+    isCurrent: true,
+    startDate: "2-15-2025",
+    jobType: "Full Time",
+  },
   {
     company: "JIO Platforms",
     position: "Software Developer",
@@ -15,8 +29,9 @@ export const ExperienceData = [
       "Worked on developing the Jio Krishi website and PWA, leveraging ReactJS, React Query, and Styled Components to deliver responsive and feature-rich user interfaces.",
       "Built demo application POCs using React Native to explore innovative ideas and functionalities.",
     ],
-    isCurrent: true,
+    isCurrent: false,
     startDate: "5-1-2023",
+    endDate: "2-14-2025",
     jobType: "Full Time",
   },
   {

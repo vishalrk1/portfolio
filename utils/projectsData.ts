@@ -173,7 +173,7 @@ export const ProjectsData = [
     images: [
       {
         alt: "BTC-alerting-vishal-karangale",
-        url: "/project/BTCAlert/btcSS.png"
+        url: "/project/BTCAlert/btcSS.png",
         // url: "https://github.com/user-attachments/assets/1c0f40da-f67d-4d6b-b67a-e3429543de25",
       },
     ],

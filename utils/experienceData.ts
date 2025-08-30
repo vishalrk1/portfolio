@@ -10,9 +10,10 @@ export const ExperienceData = [
     position: "Associate Data Scientist",
     companyLogo: digitLogo,
     description: [
-      "Developed an advanced ensemble computer vision pipeline (YOLOv11, RF-Detr, Azure/Paddle OCR) for odometer readingclassification, increasing accuracy from 65% to 88% and significantly improving data reliability for insurance assessments.",
-      "Developed and implemented a facial recognition system utilising the DeepFace library and cosine similarity to match individuals across various images for verification purposes accurately.",
-      "Implemented a utility package for the AI team to optimize reusable code and maintain global utilities such as image pre/post-processing, database utilities, model quantization, and SQS queue integration.",
+      "Elevated Odometer Detection accuracy from 65% to 92% by developing a multi-stage vision pipeline that ensembles YOLOv11/RF-DETR with a voting-based OCR system (Paddle, Azure, GPT-4o) for superior performance.",
+      "Optimized the performance and reliability of the ML system in multiple projects by eliminating memory leaks in a core API by implementing a singleton stateless model loading pattern.",
+      "Built a low-latency, real-time proctoring system for live video streams, using Mediapipe for facial pose estimation (roll, pitch, yaw) and YOLO for multi-object detection to ensure remote assessment integrity.",
+      "Worked on finetuning small vlm and llm's",
     ],
     isCurrent: true,
     startDate: "2-15-2025",

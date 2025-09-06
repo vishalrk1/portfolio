@@ -29,7 +29,7 @@ const ContactSection = () => {
     setLoading(true);
     if (!formData.name || !formData.email || !formData.message) {
       toast.error("Fill all the fields 😢");
-      setLoading(false)
+      setLoading(false);
       return;
     }
     emailjs.send(serviceId, templeteId, formData, publicId).then(
@@ -52,7 +52,7 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="flex flex-col justify-center bg-secondary w-full px-6 md:px-12 xl:px-40 pb-10"
+      className="flex flex-col justify-center bg-secondary w-full px-6 md:px-12 xl:px-40 pb-10 scroll-mt-28 md:scroll-mt-32"
     >
       <h1 className="font-semibold text-3xl md:text-4xl font-poppins mt-8">
         Connect With Me

@@ -7,7 +7,6 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import ProjectDialog from "../ProjectDialog/ProjectDialog";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -51,7 +50,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         },
       });
     }
-  }, [control, isInView]);
+  }, [control, isInView, index]);
 
   const openInNewTab = (url: string) => {
     const newWindow = window.open(url, "_blank", "noopener,noreferrer");
@@ -82,7 +81,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         // onClick={() => setIsOpen(true)}
         // className="flex flex-col w-full md:w-[380px] h-max rounded-lg bg-gradient-to-t from-slate-700 to-slate-800 p-2"
       >
-        <Card className="w-full md:w-[380px] h-max rounded-lg bg-gradient-to-t from-slate-700 to-slate-800 border-0">
+        <Card className="w-full h-full rounded-lg bg-gradient-to-t from-slate-700 to-slate-800 border-0">
           <CardHeader>
             <Tooltip>
               <TooltipTrigger>
@@ -97,7 +96,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <p>Explore Project Details</p>
               </TooltipContent>
             </Tooltip>
-            <CardDescription className="text-gray-400 md:line-clamp-4">
+            <CardDescription className="text-gray-300 text-sm md:text-base md:line-clamp-4">
               {projectItem.description}
             </CardDescription>
             <Accordion
@@ -112,14 +111,14 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                 <AccordionContent>
                   <ImageCarousel
                     images={projectItem.images}
-                    className="h-[100px] md:h-[200px]"
+                    className="h-[140px] md:h-[200px]"
                     autoplay={imagesAutoPlay}
                   />
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
           </CardHeader>
-          <CardFooter className="space-x-2">
+          <CardFooter className="flex flex-wrap gap-2">
             {projectItem.liveLink && (
               <Button
                 onClick={() => openInNewTab(projectItem.liveLink)}

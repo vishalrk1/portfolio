@@ -9,18 +9,7 @@ const Navbar = () => {
   const router = useRouter();
   const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("");
-
-  let routes: Route[] = pathname === "/" ? navRoutes : navRoutes.slice(0,2)
-
-  const updateActiveRoute = useCallback(
-    (sectionId: string) => {
-      routes.forEach((route) => {
-        route.isActive =
-          route.sectionId === sectionId || route.path === pathname;
-      });
-    },
-    [pathname]
-  );
+  const routes: Route[] = navRoutes;
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -30,42 +19,47 @@ const Navbar = () => {
   const handleNavClick = useCallback(
     (path: string, sectionId: string) => {
       if (path.startsWith("#")) {
-        scrollToSection(sectionId);
-      } else {
-        router.push(path);
+        if (pathname !== "/") {
+          router.push(`/${path}`);
+        } else {
+          scrollToSection(sectionId);
+        }
+        setActiveSection(sectionId);
+        return;
       }
-      updateActiveRoute(sectionId);
-      setActiveSection(sectionId);
+      router.push(path);
     },
-    [router, updateActiveRoute]
+    [router, pathname]
   );
 
   useEffect(() => {
+    if (pathname !== "/") return;
     const handleScroll = () => {
-      const sections = document.querySelectorAll("section");
+      const sections = document.querySelectorAll("section[id]");
       let currentSectionId = "";
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        const sectionBottom = sectionTop + section.offsetHeight;
+        const sectionTop = (section as HTMLElement).offsetTop;
+        const sectionBottom =
+          sectionTop + (section as HTMLElement).offsetHeight;
 
         if (
-          window.scrollY >= sectionTop - 100 &&
-          window.scrollY < sectionBottom
+          window.scrollY >= sectionTop - 120 &&
+          window.scrollY < sectionBottom - 120
         ) {
-          currentSectionId = section.id;
+          currentSectionId = (section as HTMLElement).id;
         }
       });
 
       if (activeSection !== currentSectionId) {
         setActiveSection(currentSectionId);
-        updateActiveRoute(currentSectionId);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection, updateActiveRoute]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll as any);
+  }, [activeSection, pathname]);
 
   return (
     <nav className="sticky top-0 left-0 right-0 bg-[#181824] flex justify-between md:justify-start items-center tracking-wider h-20 px-4 md:px-40 py-5 md:space-x-52 z-30">
@@ -75,33 +69,34 @@ const Navbar = () => {
         </h1>
       </Link>
       <div className="flex gap-6">
-        {pathname !== "/" && (
-          <a
-            href={"/"}
-            className={twMerge(
-              "text-sm md:text-lg font-semibold tracking-wide cursor-pointer transition-colors duration-200",
-              "text-white hover:text-primary"
-            )}
-          >
-            Home
-          </a>
-        )}
-        {routes.map((item) => (
-          <a
-            href={item.path}
-            key={item.sectionId}
-            onClick={(e) => {
-              e.preventDefault();
-              handleNavClick(item.path, item.sectionId);
-            }}
-            className={twMerge(
-              "text-sm md:text-lg font-semibold tracking-wide cursor-pointer transition-colors duration-200",
-              item.isActive ? "text-primary" : "text-white hover:text-primary"
-            )}
-          >
-            {item.title}
-          </a>
-        ))}
+        {routes.map((item) => {
+          const isHash = item.path.startsWith("#");
+          const href = isHash ? `/${item.path}` : item.path;
+          const isActive =
+            pathname === "/"
+              ? activeSection === item.sectionId
+              : pathname === item.path;
+          return (
+            <Link
+              href={href}
+              key={item.sectionId}
+              onClick={(e) => {
+                if (isHash) {
+                  if (pathname === "/") {
+                    e.preventDefault();
+                    handleNavClick(item.path, item.sectionId);
+                  }
+                }
+              }}
+              className={twMerge(
+                "text-sm md:text-lg font-semibold tracking-wide cursor-pointer transition-colors duration-200",
+                isActive ? "text-primary" : "text-white hover:text-primary"
+              )}
+            >
+              {item.title}
+            </Link>
+          );
+        })}
       </div>
     </nav>
   );

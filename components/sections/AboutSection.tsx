@@ -5,7 +5,7 @@ const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="flex flex-col justify-center bg-secondary w-full px-4 md:px-12 xl:px-40 py-8"
+      className="flex flex-col justify-center bg-secondary w-full px-4 md:px-12 xl:px-40 py-8 scroll-mt-28 md:scroll-mt-32"
     >
       <motion.h1
         initial={{ y: 30, opacity: 0 }}

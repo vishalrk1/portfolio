@@ -77,12 +77,9 @@ const Info: React.FC = () => {
         </div>
       </div>
       <div className="flex md:justify-end items-center w-full md:w-1/2 md:mt-24 mb-10 gap-4">
-        {/* <Image
-          src={pfpImage}
-          alt=""
-          className="hidden md:block w-72 h-96 rounded-lg object-cover"
-        /> */}
-        <IconCloudDemo />
+        <div className="w-full flex justify-center md:justify-end">
+          <IconCloudDemo />
+        </div>
       </div>
     </section>
   );
